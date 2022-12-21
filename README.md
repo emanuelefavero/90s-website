@@ -9,3 +9,5 @@ This is a website dedicated to those ugly website designs from the 90s that I lo
 ## Usage
 
 - clone the repo and open `index.html` in your browser
+
+> Note: All code is in one HTML file for simplicity only.
