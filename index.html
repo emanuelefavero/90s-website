@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: 'digital-font';
+        src: url(./fonts/DS-DIGIB.TTF);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        font-family: serif;
+        background-image: url('images/90s-wallpaper6.jpg');
+        background-size: 150px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        padding-top: 2rem;
+      }
+
+      .title-container {
+        padding: 0.8rem 1.6rem;
+        box-shadow: inset 0px 0px 0px 2px rgb(0, 0, 0),
+          inset 0px 0px 0px 3.5px rgb(161, 172, 189);
+        border: 3px outset rgb(209, 210, 213);
+
+        margin-bottom: 2.5rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .title {
+        font-size: 4rem;
+        background: linear-gradient(
+          0deg,
+          rgb(255, 0, 132),
+          rgb(255, 255, 255),
+          rgb(0, 60, 255),
+          rgb(0, 234, 255),
+          rgb(2, 255, 23),
+          rgb(204, 255, 0),
+          rgb(255, 149, 0),
+          rgb(255, 17, 0)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(2px 2px rgb(47, 59, 103));
+      }
+
+      h2 {
+        animation: blink 0.8s linear infinite alternate;
+        font-size: 1rem;
+        font-weight: 600;
+        color: rgb(24, 236, 244);
+        text-shadow: 1px 1px rgb(0, 0, 0);
+      }
+
+      .photo {
+        width: 300px;
+        border: 6px outset rgb(209, 210, 213);
+        box-shadow: inset 0px 0px 0px 2px rgb(0, 0, 0),
+          inset 0px 0px 0px 3.5px rgb(161, 172, 189);
+
+        margin-bottom: 2rem;
+      }
+
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .time-passed-since-90s {
+        /* animation: blink 1s linear infinite alternate; */
+        font-family: 'digital-font', sans-serif;
+        font-size: 1.25rem;
+        padding: 0.05rem 0.3rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background-color: rgb(2, 28, 17);
+        color: rgb(23, 223, 19);
+        text-shadow: 2px 2px rgb(47, 59, 103);
+        margin-left: 0.8rem;
+        margin-right: 0.8rem;
+      }
+
+      /* infinite spin animation on .gif */
+      .gif {
+        animation: spin 10s linear infinite;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title-container">
+      <h1 class="title">90s Website</h1>
+      <h2>This website is dedicated to the 90s. This is me in 1994!</h2>
+    </div>
+
+    <img class="photo" src="images/90s-kid.jpg" alt="kid" />
+
+    <footer>
+      <!-- <iframe
+        src="https://giphy.com/embed/3ohhwjlY5Qvz1SA4Y8"
+        width="60"
+        height="60"
+        frameborder="0"
+        class="gif"
+      ></iframe> -->
+
+      <iframe
+        src="https://giphy.com/embed/SEhNCww9vGLAc"
+        width="60"
+        height="60"
+        frameborder="0"
+        class="gif"
+      ></iframe>
+
+      <div class="time-passed-since-90s" id="time-passed-since-90s"></div>
+      <iframe
+        src="https://giphy.com/embed/3ohhwjlY5Qvz1SA4Y8"
+        width="60"
+        height="60"
+        frameborder="0"
+        class="gif"
+      ></iframe>
+    </footer>
+
+    <script>
+      // calculate days passed since December 31th, 1999 and display it
+      const timePassedSince90s = document.getElementById(
+        'time-passed-since-90s'
+      )
+
+      const today = new Date()
+      const nineties = new Date('December 31, 1999 00:00:00')
+
+      const timePassed = today - nineties
+      const daysPassed = Math.floor(timePassed / (1000 * 60 * 60 * 24))
+
+      timePassedSince90s.innerHTML = `${daysPassed} DAYS SINCE THE 90s`
+
+      // set timeout to update the days passed every 24 hours
+      setTimeout(() => {
+        timePassedSince90s.innerHTML = `${daysPassed} DAYS SINCE THE 90s`
+      }, 1000 * 60 * 60 * 24)
+    </script>
+  </body>
+</html>
